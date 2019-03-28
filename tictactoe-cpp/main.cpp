@@ -2,11 +2,11 @@
 #include <string>
 #include <unordered_map>
 template <size_t rows, size_t cols>
-bool isWinner(int (&solution)[rows][cols], std::unordered_map<int, std::string> board) {
+bool isWinner(int (&solution)[rows][cols], std::unordered_map<int, std::string> board, std::string currentPlayer) {
+	std::cout << "solution check" << std::endl;
 	for (auto i = 0; i < 8; i++) {
-		std::cout << "s" << std::endl;
-		if (solution[i][0] == 1) {
-
+		if (solution[i][0] == currentPlayer && solution[i][0] == solution[i][1] && solution[i][0] == solution[i][2]) {
+			return true;
 		}
 	}
 	return false;
@@ -44,6 +44,10 @@ int main() {
 		}
 		placePiece(input, currentPlayer, board);
 		std::cout << currentPlayer << input << std::endl;
+		if (isWinner(solution, board, currentPlayer)) {
+			std::cout << "Winner is " << currentPlayer << std::endl;
+			break;
+		}
 		if (currentPlayer == "X") {
 			currentPlayer = "O";
 		}
