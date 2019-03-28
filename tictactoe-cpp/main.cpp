@@ -19,6 +19,7 @@ void placePiece(int pos, std::string currentPlayer, std::unordered_map<int, std:
 	return;
 }
 void printBoard(std::unordered_map<int, std::string> board) {
+	std::cout << "Current board :" << std::endl;
 	std::cout << board[1] << "|" << board[2] << "|" << board[3] << std::endl;
 	std::cout << "- - -" << std::endl;
 	std::cout << board[4] << "|" << board[5] << "|" << board[6] << std::endl;
@@ -32,7 +33,7 @@ int main() {
 		{ 4, 5, 6 },
 		{ 7, 8, 9 },
 		{ 1, 5, 9 },
-		{ 3, 6, 7 },
+		{ 3, 5, 7 },
 		{ 1, 4, 7 },
 		{ 2, 5, 8 },
 		{ 3, 6, 9 }
@@ -58,7 +59,7 @@ int main() {
 		std::cout << currentPlayer << "'s turn, enter a number :" << std::endl;
 		std::cin >> input;
 		while (true) {
-			if (input > 0 && input < 10) {
+			if (input > 0 && input < 10 && board[input] == " ") {
 				placePiece(input, currentPlayer, board);
 				break;
 			}
