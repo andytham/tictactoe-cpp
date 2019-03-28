@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-bool isWinner(int solution[][3], std::unordered_map<int, std::string> board) {
+template <size_t rows, size_t cols>
+bool isWinner(int (&solution)[rows][cols], std::unordered_map<int, std::string> board) {
 	for (auto i = 0; i < 8; i++) {
 		std::cout << "s" << std::endl;
 		if (solution[i][0] == 1) {
