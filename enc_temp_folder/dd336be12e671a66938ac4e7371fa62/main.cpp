@@ -11,10 +11,6 @@ bool isWinner(int (&solution)[rows][cols], std::unordered_map<int, std::string> 
 	}
 	return false;
 }
-void placePiece(int pos, std::string currentPlayer, std::unordered_map<int, std::string> board){
-	board[pos] = currentPlayer;
-	return;
-}
 int main() {
 	std::cout << "hello world\n";
 	int input;
@@ -35,14 +31,6 @@ int main() {
 	while (!gameOver) {
 		std::cout << "Enter next command" << std::endl;
 		std::cin >> input;
-		while (true) {
-			if (input > 0 && input < 10) {
-				break;
-			}
-			std::cout << "Enter valid spot: " << std::endl;
-			std::cin >> input;
-		}
-		placePiece(input, currentPlayer, board);
 		std::cout << currentPlayer << input << std::endl;
 		if (currentPlayer == "X") {
 			currentPlayer = "O";
@@ -50,7 +38,7 @@ int main() {
 		else {
 			currentPlayer = "X";
 		}
-		input = 0;
+
 	}
 	return 0;
 }
