@@ -5,10 +5,12 @@ template <size_t rows, size_t cols>
 bool isWinner(int (&solution)[rows][cols], std::unordered_map<int, std::string> board, std::string currentPlayer) {
 	std::cout << "solution check" << std::endl;
 	for (auto i = 0; i < 8; i++) {
-		if (solution[i][0] == currentPlayer && solution[i][0] == solution[i][1] && solution[i][0] == solution[i][2]) {
+		if (board[solution[i][0]] == currentPlayer && board[solution[i][0]] == board[solution[i][1]] && board[solution[i][0]] == board[solution[i][2]]) {
+			std::cout << "Solution found" << std::endl;
 			return true;
 		}
 	}
+	std::cout << "No solution" << std::endl;
 	return false;
 }
 void placePiece(int pos, std::string currentPlayer, std::unordered_map<int, std::string> board){
